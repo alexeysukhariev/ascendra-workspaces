@@ -1,5 +1,5 @@
 import { PersonaProvider } from '@/components/providers/persona-provider';
-import { DeveloperShell } from '@/components/shell/developer-shell';
+import { AppShell } from '@/components/shell/app-shell';
 
 export default function DeveloperLayout({
   children,
@@ -8,7 +8,7 @@ export default function DeveloperLayout({
 }) {
   return (
     <PersonaProvider persona="developer">
-      <DeveloperShell>{children}</DeveloperShell>
+      <AppShell>{children}</AppShell>
     </PersonaProvider>
   );
 }

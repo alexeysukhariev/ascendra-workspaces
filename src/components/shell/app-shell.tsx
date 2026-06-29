@@ -1,25 +1,46 @@
 'use client';
 
 import Link from 'next/link';
-import { LayoutGrid, Server, Layers } from 'lucide-react';
+import { Laptop, LayoutGrid, Server, Layers } from 'lucide-react';
 import { Logo } from '@/components/brand/logo';
+import {
+  PERSONA_HOME,
+  usePersona,
+  type Persona,
+} from '@/components/providers/persona-provider';
 import { NavLink, type NavItem } from './nav-link';
 import { PersonaSwitcher } from './persona-switcher';
 import { ThemeToggle } from './theme-toggle';
 import { UserChip } from './user-chip';
 
-const ADMIN_NAV: NavItem[] = [
-  { href: '/fleet', label: 'Fleet Overview', icon: LayoutGrid },
-  { href: '/inventory', label: 'VM Inventory', icon: Server },
-  { href: '/templates', label: 'Templates', icon: Layers },
-];
+/** Per-persona navigation + sidebar caption. The shell itself is identical. */
+const NAV: Record<Persona, { caption: string; items: NavItem[] }> = {
+  developer: {
+    caption: 'Workspace',
+    items: [{ href: '/my-machines', label: 'My Machines', icon: Laptop }],
+  },
+  admin: {
+    caption: 'Control Plane',
+    items: [
+      { href: '/fleet', label: 'Fleet Overview', icon: LayoutGrid },
+      { href: '/inventory', label: 'VM Inventory', icon: Server },
+      { href: '/templates', label: 'Templates', icon: Layers },
+    ],
+  },
+};
 
 /**
- * Admin experience: a dense operations console using the macOS Tahoe inset
- * pattern — a floating sidebar that "peers" with the content on the same
- * elevation, content area with no background of its own.
+ * Unified application shell (macOS Tahoe inset pattern): a floating sidebar that
+ * "peers" with the content on the same elevation, and a content area with no
+ * background of its own. Both personas share this exact layout — only the
+ * navigation items and the caption under the logo change, so switching personas
+ * never reshuffles the chrome.
  */
-export function AdminShell({ children }: { children: React.ReactNode }) {
+export function AppShell({ children }: { children: React.ReactNode }) {
+  const { persona } = usePersona();
+  const { caption, items } = NAV[persona];
+  const home = PERSONA_HOME[persona];
+
   return (
     <div className="flex min-h-screen items-stretch gap-3 p-3 max-[880px]:flex-col max-[880px]:gap-2 max-[880px]:p-2">
       <aside
@@ -30,22 +51,22 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
       >
         <div className="px-2 py-2">
           <Link
-            href="/fleet"
+            href={home}
             className="inline-flex items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            aria-label="StrategiClear — Fleet Overview"
+            aria-label={`StrategiClear — ${items[0].label}`}
           >
             <Logo className="h-6" />
           </Link>
-          <p className="mt-1 px-0.5 text-[11px] font-medium tracking-[0.04em] text-muted-foreground">
-            CONTROL PLANE
+          <p className="mt-1 px-0.5 text-[11px] font-medium uppercase tracking-[0.04em] text-muted-foreground">
+            {caption}
           </p>
         </div>
 
         <nav
-          aria-label="Admin sections"
+          aria-label={`${caption} navigation`}
           className="mt-2 flex flex-col gap-0.5 max-[880px]:flex-row max-[880px]:overflow-x-auto"
         >
-          {ADMIN_NAV.map((item) => (
+          {items.map((item) => (
             <NavLink key={item.href} item={item} variant="sidebar" />
           ))}
         </nav>

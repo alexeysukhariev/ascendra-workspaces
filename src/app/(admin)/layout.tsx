@@ -1,5 +1,5 @@
 import { PersonaProvider } from '@/components/providers/persona-provider';
-import { AdminShell } from '@/components/shell/admin-shell';
+import { AppShell } from '@/components/shell/app-shell';
 
 export default function AdminLayout({
   children,
@@ -8,7 +8,7 @@ export default function AdminLayout({
 }) {
   return (
     <PersonaProvider persona="admin">
-      <AdminShell>{children}</AdminShell>
+      <AppShell>{children}</AppShell>
     </PersonaProvider>
   );
 }
