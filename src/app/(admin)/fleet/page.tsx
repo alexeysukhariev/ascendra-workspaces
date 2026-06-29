@@ -121,7 +121,7 @@ export default function FleetOverviewPage() {
           <Card>
             <CardHeader className="flex-row items-start justify-between space-y-0">
               <div className="space-y-1">
-                <CardTitle className="text-base">
+                <CardTitle className="type-headline">
                   Aggregate utilization
                 </CardTitle>
                 <CardDescription>

@@ -47,6 +47,13 @@ export function PersonaProvider({
     } catch {
       // ignore storage failures (private mode etc.)
     }
+    // Mirror the persona onto <body> so portaled surfaces (dialogs, selects,
+    // dropdowns) — which mount outside the AppShell wrapper — still inherit the
+    // persona accent colour.
+    document.body.dataset.persona = persona;
+    return () => {
+      delete document.body.dataset.persona;
+    };
   }, [persona]);
 
   const byId = (id?: string) => users.data?.find((u) => u.id === id);

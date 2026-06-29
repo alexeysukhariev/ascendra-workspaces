@@ -71,7 +71,7 @@ export default function TemplatesPage() {
             <Card key={template.id} className="flex flex-col">
               <CardHeader className="flex-row items-start justify-between space-y-0">
                 <div className="min-w-0 space-y-1">
-                  <CardTitle className="text-base">{template.name}</CardTitle>
+                  <CardTitle className="type-headline">{template.name}</CardTitle>
                   <p className="truncate font-mono text-xs text-muted-foreground">
                     {template.baseImage}
                   </p>

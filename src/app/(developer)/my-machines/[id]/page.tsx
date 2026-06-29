@@ -148,7 +148,7 @@ export default function VmDetailPage({
           {/* Metadata */}
           <Card>
             <CardHeader>
-              <CardTitle className="text-base">Details</CardTitle>
+              <CardTitle className="type-headline">Details</CardTitle>
             </CardHeader>
             <CardContent>
               <dl className="grid grid-cols-2 gap-x-6 gap-y-4 text-sm sm:grid-cols-3">
@@ -202,8 +202,8 @@ function Meta({
 }) {
   return (
     <div>
-      <dt className="text-xs text-muted-foreground">{label}</dt>
-      <dd className={mono ? 'mt-0.5 font-mono text-[13px]' : 'mt-0.5'}>
+      <dt className="type-caption-1 text-muted-foreground">{label}</dt>
+      <dd className={mono ? 'mt-0.5 font-mono text-[13px]' : 'mt-0.5 type-subheadline'}>
         {value}
       </dd>
     </div>
@@ -231,7 +231,7 @@ function ChartCard({
     <Card>
       <CardHeader className="flex-row items-start justify-between space-y-0">
         <div className="space-y-1">
-          <CardTitle className="text-base">{title}</CardTitle>
+          <CardTitle className="type-headline">{title}</CardTitle>
           <CardDescription>{description}</CardDescription>
         </div>
         <ul className="flex items-center gap-3 text-xs text-muted-foreground">
