@@ -21,6 +21,7 @@ import {
   type TimeSeriesRow,
 } from '@/components/domain/time-series-chart';
 import { ErrorState } from '@/components/domain/states';
+import { UtilizationDistribution } from '@/components/domain/utilization-distribution';
 import {
   Card,
   CardContent,
@@ -155,6 +156,8 @@ export default function FleetOverviewPage() {
               />
             </CardContent>
           </Card>
+
+          <UtilizationDistribution />
         </div>
       ) : null}
     </div>

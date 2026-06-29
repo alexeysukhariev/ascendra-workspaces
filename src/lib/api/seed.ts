@@ -71,16 +71,16 @@ export function createSeedData(now: Date = new Date()): SeedData {
 
   // --- Templates ---------------------------------------------------------
   const templates: VMTemplate[] = [
-    mkTemplate('t_backend', 'Backend Service', 'ubuntu-22.04', 4, 16, 100, [
+    mkTemplate('t_backend', 'Backend Service', 'General-purpose box for API and service work with Postgres tooling.', 'ubuntu-22.04', 4, 16, 100, [
       'node@20', 'pnpm', 'docker', 'postgresql-client',
     ], now),
-    mkTemplate('t_frontend', 'Frontend Web', 'ubuntu-22.04', 2, 8, 60, [
+    mkTemplate('t_frontend', 'Frontend Web', 'Web UI development with a headless browser for E2E tests.', 'ubuntu-22.04', 2, 8, 60, [
       'node@20', 'pnpm', 'chromium', 'playwright',
     ], now),
-    mkTemplate('t_datasci', 'Data Science', 'ubuntu-22.04-cuda', 8, 32, 250, [
+    mkTemplate('t_datasci', 'Data Science', 'GPU-backed notebooks and model training with CUDA.', 'ubuntu-22.04-cuda', 8, 32, 250, [
       'python@3.11', 'jupyter', 'pytorch', 'cuda-12',
     ], now),
-    mkTemplate('t_go', 'Go Microservice', 'debian-bookworm', 2, 4, 40, [
+    mkTemplate('t_go', 'Go Microservice', 'Lean image for building and testing Go gRPC services.', 'debian-bookworm', 2, 4, 40, [
       'go@1.22', 'docker', 'grpcurl',
     ], now),
   ];
@@ -211,6 +211,7 @@ export function createSeedData(now: Date = new Date()): SeedData {
 function mkTemplate(
   id: string,
   name: string,
+  description: string,
   baseImage: string,
   vcpu: number,
   memoryGb: number,
@@ -222,6 +223,7 @@ function mkTemplate(
   return {
     id,
     name,
+    description,
     baseImage,
     vcpu,
     memoryGb,

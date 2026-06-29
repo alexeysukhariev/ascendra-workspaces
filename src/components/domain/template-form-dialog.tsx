@@ -26,6 +26,7 @@ import { cn } from '@/lib/utils';
 
 const EMPTY: TemplateFormValues = {
   name: '',
+  description: '',
   baseImage: '',
   vcpu: 2,
   memoryGb: 8,
@@ -64,6 +65,7 @@ export function TemplateFormDialog({
     if (template) {
       reset({
         name: template.name,
+        description: template.description,
         baseImage: template.baseImage,
         vcpu: template.vcpu,
         memoryGb: template.memoryGb,
@@ -106,6 +108,13 @@ export function TemplateFormDialog({
             error={errors.name?.message}
             {...register('name')}
             placeholder="Backend Service"
+          />
+          <Field
+            id="description"
+            label="Description"
+            error={errors.description?.message}
+            {...register('description')}
+            placeholder="What is this template for?"
           />
           <Field
             id="baseImage"

@@ -307,6 +307,7 @@ export function createTemplate(input: TemplateInput): VMTemplate {
   const template: VMTemplate = {
     id: `t_${(s.seq++).toString(36)}`,
     name: input.name,
+    description: input.description,
     baseImage: input.baseImage,
     vcpu: input.vcpu,
     memoryGb: input.memoryGb,

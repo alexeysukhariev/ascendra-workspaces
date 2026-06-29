@@ -48,6 +48,8 @@ export interface User {
 export interface VMTemplate {
   id: string;
   name: string;
+  /** Short human description of what this template is for. */
+  description: string;
   /** e.g. "ubuntu-22.04", "node-20-bookworm". */
   baseImage: string;
   vcpu: number;
@@ -160,6 +162,7 @@ export interface ApiError {
 /** Payload for creating/editing a template. */
 export interface TemplateInput {
   name: string;
+  description: string;
   baseImage: string;
   vcpu: number;
   memoryGb: number;

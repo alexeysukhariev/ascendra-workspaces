@@ -72,10 +72,14 @@ error / in-progress), and deliberately did **not** gold-plate breadth.
    and "current admin" identities come from `GET /api/identity`, so nothing is
    hard-coded in components.
 
-2. **Two different shells, not one shell with different links.** Developer gets an
-   airy, centered, **top-nav** layout ("this is *your* workspace"). Admin gets a
-   dense, full-width **sidebar console** ("Control Plane"). This is the strongest
-   signal that they're distinct experiences.
+2. **One unified shell, two visually distinct personas.** Both personas use the
+   same macOS-style floating-sidebar `AppShell`, so switching never reshuffles
+   the chrome. They stay clearly distinct via a **per-persona accent colour**
+   (Developer = blue, Admin = indigo — applied through a `data-persona` token
+   override so every button, active nav item, ring and tint shifts colour), a
+   coloured caption (Workspace / Control Plane), and of course different
+   navigation and content. (An earlier version used two entirely different
+   layouts — top-nav vs sidebar — but a stable, consistent shell read better.)
 
 3. **Domain models are a reconstruction.** The brief says to use the interfaces
    "verbatim", but the literal interface bodies weren't included in the prompt. I

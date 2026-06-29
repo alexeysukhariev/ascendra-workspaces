@@ -92,6 +92,24 @@
   --glass-border: rgba(255, 255, 255, 0.1);
 }
 
+/*
+ * Persona accent. Both personas share the shell, but the interactive accent
+ * colour differs so the two experiences stay visually distinct: Developer =
+ * blue (the default), Admin (Control Plane) = indigo. Applied via the
+ * data-persona wrapper in AppShell, so buttons, active nav, rings and tints all
+ * shift colour without touching status colours.
+ */
+[data-persona='admin'] {
+  --primary: #5856d6; /* iOS indigo (light) */
+  --primary-foreground: #ffffff;
+  --ring: #5856d6;
+}
+.dark [data-persona='admin'] {
+  --primary: #7d7aff; /* indigo (dark) */
+  --primary-foreground: #ffffff;
+  --ring: #7d7aff;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

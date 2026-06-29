@@ -86,6 +86,11 @@ export default function TemplatesPage() {
                 </Button>
               </CardHeader>
               <CardContent className="flex flex-1 flex-col gap-4">
+                {template.description && (
+                  <p className="type-footnote text-muted-foreground">
+                    {template.description}
+                  </p>
+                )}
                 <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground">
                   <span className="inline-flex items-center gap-1">
                     <Cpu className="size-3.5" /> {template.vcpu} vCPU

@@ -160,6 +160,7 @@ async function parseTemplateBody(
   return {
     value: {
       name: body.name.trim(),
+      description: (body.description ?? '').trim(),
       baseImage: body.baseImage.trim(),
       vcpu: body.vcpu!,
       memoryGb: body.memoryGb!,

@@ -81,6 +81,7 @@ describe('template creation', () => {
     const before = getTemplates().length;
     const created = createTemplate({
       name: 'Test Template',
+      description: 'A template used in tests',
       baseImage: 'ubuntu-24.04',
       vcpu: 2,
       memoryGb: 8,

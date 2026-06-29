@@ -12,6 +12,11 @@ export const templateFormSchema = z.object({
     .trim()
     .min(2, 'Name must be at least 2 characters')
     .max(40, 'Keep the name under 40 characters'),
+  description: z
+    .string()
+    .trim()
+    .max(140, 'Keep the description under 140 characters')
+    .optional(),
   baseImage: z
     .string()
     .trim()
@@ -59,6 +64,7 @@ export function toTemplateInput(
 ): TemplateInput {
   return {
     name: values.name,
+    description: values.description ?? '',
     baseImage: values.baseImage,
     vcpu: values.vcpu,
     memoryGb: values.memoryGb,

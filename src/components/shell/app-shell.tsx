@@ -42,14 +42,22 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const home = PERSONA_HOME[persona];
 
   return (
-    <div className="flex min-h-screen items-stretch gap-3 p-3 max-[880px]:flex-col max-[880px]:gap-2 max-[880px]:p-2">
+    <div
+      data-persona={persona}
+      className="flex min-h-screen items-stretch gap-3 p-3 max-[880px]:flex-col max-[880px]:gap-2 max-[880px]:p-2"
+    >
       <aside
         className={
-          'sticky top-3 flex h-[calc(100vh-1.5rem)] w-60 shrink-0 flex-col rounded-[22px] border bg-card p-3 ' +
+          'sticky top-3 flex h-[calc(100vh-1.5rem)] w-60 shrink-0 flex-col overflow-hidden rounded-[22px] border bg-card p-3 ' +
           'max-[880px]:static max-[880px]:h-auto max-[880px]:w-full max-[880px]:rounded-2xl'
         }
       >
-        <div className="px-2 py-2">
+        {/* Faint persona-tinted wash at the top of the sidebar. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-primary/[0.07] to-transparent"
+        />
+        <div className="relative px-2 py-2">
           <Link
             href={home}
             className="inline-flex items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -57,21 +65,22 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           >
             <Logo className="h-6" />
           </Link>
-          <p className="mt-1 px-0.5 text-[11px] font-medium uppercase tracking-[0.04em] text-muted-foreground">
+          <p className="mt-1.5 inline-flex items-center gap-1.5 px-0.5 text-[11px] font-semibold uppercase tracking-[0.04em] text-primary">
+            <span className="size-1.5 rounded-full bg-primary" aria-hidden />
             {caption}
           </p>
         </div>
 
         <nav
           aria-label={`${caption} navigation`}
-          className="mt-2 flex flex-col gap-0.5 max-[880px]:flex-row max-[880px]:overflow-x-auto"
+          className="relative mt-2 flex flex-col gap-0.5 max-[880px]:flex-row max-[880px]:overflow-x-auto"
         >
           {items.map((item) => (
             <NavLink key={item.href} item={item} variant="sidebar" />
           ))}
         </nav>
 
-        <div className="mt-auto flex flex-col gap-3 border-t pt-3 max-[880px]:mt-3">
+        <div className="relative mt-auto flex flex-col gap-3 border-t pt-3 max-[880px]:mt-3">
           <PersonaSwitcher />
           <div className="flex items-center justify-between">
             <UserChip />
