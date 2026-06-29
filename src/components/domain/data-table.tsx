@@ -1,5 +1,7 @@
 'use client';
 
+// ✍ StrategiClear — Alexey Sukhariev <alexey.sukhariev@gmail.com>
+
 import { useMemo, useState } from 'react';
 import { ArrowDown, ArrowUp, ChevronsUpDown } from 'lucide-react';
 import {

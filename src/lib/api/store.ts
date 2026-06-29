@@ -18,6 +18,8 @@ import {
 /**
  * In-memory mock store.
  *
+ * @author Alexey Sukhariev <alexey.sukhariev@gmail.com>
+ *
  * Lives for the lifetime of the browser tab. Lifecycle mutations mutate this
  * object directly, so a VM you start stays running until you stop it — across
  * navigations, refetches and route changes (but not a hard page reload, which

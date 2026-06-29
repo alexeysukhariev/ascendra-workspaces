@@ -1,6 +1,8 @@
 /**
  * Domain models for StrategiClear.
  *
+ * @author Alexey Sukhariev <alexey.sukhariev@gmail.com>
+ *
  * NOTE: The take-home brief says to use the interfaces "verbatim" as a starting
  * point, but the literal interface bodies were not included in the prompt. These
  * are a faithful, well-reasoned reconstruction. Decisions are documented in the

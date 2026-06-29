@@ -1,5 +1,7 @@
 'use client';
 
+// ✍ StrategiClear — Alexey Sukhariev <alexey.sukhariev@gmail.com>
+
 import { Moon } from 'lucide-react';
 import {
   Card,

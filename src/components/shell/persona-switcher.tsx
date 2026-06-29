@@ -1,5 +1,7 @@
 'use client';
 
+// ✍ StrategiClear — Alexey Sukhariev <alexey.sukhariev@gmail.com>
+
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Code2, Shield } from 'lucide-react';

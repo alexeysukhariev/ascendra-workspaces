@@ -1,5 +1,7 @@
 'use client';
 
+// ✍ StrategiClear — Alexey Sukhariev <alexey.sukhariev@gmail.com>
+
 import Link from 'next/link';
 import { ArrowRight, Cpu, HardDrive, MapPin, MemoryStick } from 'lucide-react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';

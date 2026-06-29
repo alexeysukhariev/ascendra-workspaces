@@ -3,6 +3,8 @@ import type { VM, VMSpecs } from '@/lib/api/types';
 /**
  * Cost model.
  *
+ * @author Alexey Sukhariev <alexey.sukhariev@gmail.com>
+ *
  * A VM's hourly cost is derived purely from its provisioned specs using simple
  * per-resource rates (USD/hour). This keeps cost deterministic and explainable
  * rather than hard-coding a number per VM. Rates are illustrative.

@@ -1,3 +1,4 @@
+// ✍ StrategiClear — Alexey Sukhariev <alexey.sukhariev@gmail.com>
 import { setupWorker } from 'msw/browser';
 import { handlers } from './handlers';
 

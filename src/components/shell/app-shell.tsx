@@ -1,5 +1,7 @@
 'use client';
 
+// ✍ StrategiClear — Alexey Sukhariev <alexey.sukhariev@gmail.com>
+
 import Link from 'next/link';
 import { Laptop, LayoutGrid, Server, Layers } from 'lucide-react';
 import { Logo } from '@/components/brand/logo';

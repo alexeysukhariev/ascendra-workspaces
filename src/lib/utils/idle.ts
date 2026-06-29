@@ -14,6 +14,8 @@ export interface IdleResult {
 /**
  * Idle / underused heuristic.
  *
+ * @author Alexey Sukhariev <alexey.sukhariev@gmail.com>
+ *
  * A VM is flagged idle when it is *running* (only running VMs cost money and
  * can be reclaimed) AND at least one of:
  *

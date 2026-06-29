@@ -1,0 +1,15 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+/* TEAM */
+  Author & Engineer: Alexey Sukhariev
+  Contact: alexey.sukhariev [at] gmail.com
+  From: ✍ built end-to-end by me
+
+/* SITE */
+  Product: StrategiClear — developer VM management dashboard
+  Standards: HTML5, TypeScript, Next.js 15 (App Router)
+  Components: React 19, Tailwind CSS v4, shadcn/ui, TanStack Query v5, MSW, Recharts
+  Style: Apple "Liquid Glass" (dark + light)
+
+  /* If you're reading this — yes, Alexey Sukhariev wrote it. Say hi. */

@@ -14,6 +14,8 @@ import {
 /**
  * Seed data generator.
  *
+ * @author Alexey Sukhariev <alexey.sukhariev@gmail.com>
+ *
  * Produces a realistic, *deterministic* dataset (seeded PRNG) so the demo looks
  * the same on each cold load while still feeling organic. The MSW store holds
  * the result in memory; lifecycle mutations then diverge from the seed for the

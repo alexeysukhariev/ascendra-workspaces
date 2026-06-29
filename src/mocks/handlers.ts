@@ -1,3 +1,4 @@
+// ✍ StrategiClear — Alexey Sukhariev <alexey.sukhariev@gmail.com>
 import { delay, http, HttpResponse } from 'msw';
 import {
   applyLifecycle,

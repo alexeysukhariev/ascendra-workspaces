@@ -1,3 +1,4 @@
+// ✍ StrategiClear — Alexey Sukhariev <alexey.sukhariev@gmail.com>
 import type { ApiError } from './types';
 
 /** Error thrown by the API client for any non-2xx response. */
