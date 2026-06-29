@@ -1,5 +1,8 @@
+# Flat, npm-style node_modules. Chosen for cross-environment robustness; also
+# sidesteps symlink-resolution issues some Windows setups hit. Works on Vercel.
 nodeLinker: hoisted
-storeDir: 'C:\Users\alsum\AppData\Local\pnpm-store'
+# These optional native/postinstall scripts are intentionally not run; the app
+# does not need them (Next falls back without sharp).
 allowBuilds:
   sharp: false
   unrs-resolver: false
