@@ -1,5 +1,7 @@
 # StrategiClear
 
+By **Alexey Sukhariev** · alexey.sukhariev@gmail.com
+
 A dashboard for managing developer virtual machines, built for the **Product
 Design Engineer** take-home. It serves two deliberately different personas:
 
@@ -244,3 +246,10 @@ needed.
   machine this was built on). It is fully portable.
 - A persona switch is just a perspective change — there is no login. Treat the two
   personas as "what a developer sees" vs "what an admin sees".
+
+---
+
+## Author & license
+
+Written by **Alexey Sukhariev** — alexey.sukhariev@gmail.com.
+Released under the [MIT License](LICENSE).

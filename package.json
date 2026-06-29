@@ -2,6 +2,8 @@
   "name": "strategiclear-workspaces",
   "version": "0.1.0",
   "private": true,
+  "author": "Alexey Sukhariev <alexey.sukhariev@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
