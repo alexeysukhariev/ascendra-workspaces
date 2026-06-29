@@ -21,28 +21,19 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-40 border-b bg-background">
-        <div className="flex h-14 items-center gap-4 px-4 sm:px-6">
-          <Link href="/fleet" className="flex items-center gap-2">
-            <span className="grid size-7 place-items-center rounded-md bg-foreground text-background">
+        <div className="flex h-14 items-center gap-3 px-4 sm:px-6">
+          <Link href="/fleet" className="flex min-w-0 items-center gap-2">
+            <span className="grid size-7 shrink-0 place-items-center rounded-md bg-foreground text-background">
               <Boxes className="size-4" />
             </span>
-            <span className="text-sm font-semibold">
-              Ascendra{' '}
-              <span className="font-normal text-muted-foreground">
+            <span className="truncate text-sm font-semibold">
+              Ascendra
+              <span className="hidden font-normal text-muted-foreground sm:inline">
+                {' '}
                 · Control Plane
               </span>
             </span>
           </Link>
-
-          {/* Compact top nav for small screens (sidebar is hidden there). */}
-          <nav
-            aria-label="Admin navigation"
-            className="ml-2 flex items-center gap-1 overflow-x-auto md:hidden"
-          >
-            {ADMIN_NAV.map((item) => (
-              <NavLink key={item.href} item={item} variant="top" />
-            ))}
-          </nav>
 
           <div className="ml-auto flex items-center gap-2 sm:gap-3">
             <PersonaSwitcher />
@@ -50,6 +41,16 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
             <UserChip />
           </div>
         </div>
+
+        {/* Compact horizontal nav for small screens (sidebar is hidden there). */}
+        <nav
+          aria-label="Admin navigation"
+          className="flex items-center gap-1 overflow-x-auto border-t px-4 py-1.5 md:hidden"
+        >
+          {ADMIN_NAV.map((item) => (
+            <NavLink key={item.href} item={item} variant="top" />
+          ))}
+        </nav>
       </header>
 
       <div className="flex flex-1">

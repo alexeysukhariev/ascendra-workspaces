@@ -45,7 +45,7 @@ export function PersonaSwitcher() {
             )}
           >
             <Icon className="size-3.5" aria-hidden="true" />
-            {opt.label}
+            <span className="hidden sm:inline">{opt.label}</span>
           </button>
         );
       })}
