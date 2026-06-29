@@ -1,4 +1,4 @@
 export { useVms, useVm, useVmUtilization, useVmLifecycle } from './vms';
-export { useFleetUtilization } from './fleet';
+export { useFleetUtilization, useFleetInventory } from './fleet';
 export { useTemplates, useCreateTemplate, useUpdateTemplate } from './templates';
-export { useUsers, usePolicy } from './meta';
+export { useUsers, usePolicy, useIdentity, type Identity } from './meta';

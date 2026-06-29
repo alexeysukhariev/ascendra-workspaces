@@ -5,6 +5,19 @@ import { apiFetch } from '../client';
 import { queryKeys } from '../keys';
 import type { Policy, User } from '../types';
 
+export interface Identity {
+  currentDeveloperId: string;
+  currentAdminId: string;
+}
+
+export function useIdentity(): UseQueryResult<Identity, Error> {
+  return useQuery({
+    queryKey: queryKeys.identity,
+    queryFn: () => apiFetch<Identity>('/identity'),
+    staleTime: Infinity,
+  });
+}
+
 export function useUsers(): UseQueryResult<User[], Error> {
   return useQuery({
     queryKey: queryKeys.users,

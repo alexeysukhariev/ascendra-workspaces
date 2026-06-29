@@ -4,6 +4,7 @@ import {
   createTemplate,
   getFleetUtilization,
   getIdentity,
+  getInventory,
   getPolicy,
   getTemplates,
   getUsers,
@@ -107,6 +108,12 @@ export const handlers = [
     await latency();
     if (shouldInjectError()) return serverError();
     return HttpResponse.json(getFleetUtilization(new Date()));
+  }),
+
+  http.get('/api/fleet/inventory', async () => {
+    await latency();
+    if (shouldInjectError()) return serverError();
+    return HttpResponse.json(getInventory(new Date()));
   }),
 
   // --- Templates --------------------------------------------------------

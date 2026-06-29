@@ -10,6 +10,7 @@ export const queryKeys = {
   vmUtilization: (id: string) => ['vms', id, 'utilization'] as const,
 
   fleetUtilization: ['fleet', 'utilization'] as const,
+  fleetInventory: ['fleet', 'inventory'] as const,
 
   templates: ['templates'] as const,
 } as const;

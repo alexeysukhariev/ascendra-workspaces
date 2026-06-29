@@ -5,6 +5,7 @@ import {
   projectedMonthlyCost,
   sumRunningHourlyCost,
 } from '@/lib/utils/cost';
+import { evaluateIdle, type IdleResult } from '@/lib/utils/idle';
 import {
   type FleetUtilization,
   type LifecycleAction,
@@ -119,6 +120,30 @@ export function getTemplates(): VMTemplate[] {
 
 export function getPolicy() {
   return getStore().policy;
+}
+
+/** A VM enriched with the data the admin inventory table needs. */
+export interface InventoryItem extends VM {
+  ownerName: string;
+  templateName: string;
+  idle: IdleResult;
+}
+
+/**
+ * Full fleet inventory with idle evaluation computed server-side via the shared
+ * {@link evaluateIdle} util (the store holds the utilization series, so we avoid
+ * fetching it per-VM from the client).
+ */
+export function getInventory(now: Date = new Date()): InventoryItem[] {
+  const s = getStore();
+  const usersById = new Map(s.users.map((u) => [u.id, u]));
+  const templatesById = new Map(s.templates.map((t) => [t.id, t]));
+  return s.vms.map(liveUsage).map((vm) => ({
+    ...vm,
+    ownerName: usersById.get(vm.ownerId)?.name ?? 'Unknown',
+    templateName: templatesById.get(vm.templateId)?.name ?? 'Unknown',
+    idle: evaluateIdle(vm, s.utilization[vm.id], now, s.policy),
+  }));
 }
 
 /** Aggregate the fleet's utilization series + current rollups and cost. */
