@@ -1,3 +1,6 @@
-ignoredBuiltDependencies:
-  - sharp
-  - unrs-resolver
+nodeLinker: hoisted
+storeDir: 'C:\Users\alsum\AppData\Local\pnpm-store'
+allowBuilds:
+  sharp: false
+  unrs-resolver: false
+  msw: false
