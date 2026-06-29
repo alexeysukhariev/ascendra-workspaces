@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Code2, Shield } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -17,10 +18,20 @@ const OPTIONS: { value: Persona; label: string; icon: typeof Code2 }[] = [
 /**
  * Demo-only persona switcher (no auth). Switching navigates to the target
  * persona's home route, which mounts that persona's shell + nav.
+ *
+ * Because this is a button (not a <Link>), Next doesn't auto-prefetch the
+ * target route. The other persona's home is a different route group with a
+ * heavier bundle (charts), so we proactively prefetch both homes on mount — and
+ * again on hover — to keep switching instant in production.
  */
 export function PersonaSwitcher() {
   const { persona } = usePersona();
   const router = useRouter();
+
+  useEffect(() => {
+    router.prefetch(PERSONA_HOME.developer);
+    router.prefetch(PERSONA_HOME.admin);
+  }, [router]);
 
   return (
     <div
@@ -37,6 +48,7 @@ export function PersonaSwitcher() {
             role="tab"
             aria-selected={active}
             onClick={() => router.push(PERSONA_HOME[opt.value])}
+            onMouseEnter={() => router.prefetch(PERSONA_HOME[opt.value])}
             className={cn(
               'inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
               active
