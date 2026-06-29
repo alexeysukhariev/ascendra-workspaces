@@ -19,17 +19,17 @@ export function MetricCard({
   className,
 }: MetricCardProps) {
   return (
-    <Card className={cn('p-4', className)}>
+    <Card className={cn('p-5', className)}>
       <div className="flex items-start justify-between gap-2">
-        <p className="text-sm text-muted-foreground">{label}</p>
+        <p className="type-footnote text-muted-foreground">{label}</p>
         {Icon && (
           <Icon className="size-4 shrink-0 text-muted-foreground" aria-hidden />
         )}
       </div>
-      <p className="mt-2 text-2xl font-semibold tabular-nums tracking-tight">
-        {value}
-      </p>
-      {hint && <p className="mt-1 text-xs text-muted-foreground">{hint}</p>}
+      <p className="type-title-1-emph mt-2 tabular-nums">{value}</p>
+      {hint && (
+        <p className="type-caption-1 mt-1 text-muted-foreground">{hint}</p>
+      )}
     </Card>
   );
 }

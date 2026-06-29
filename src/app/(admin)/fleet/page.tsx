@@ -48,6 +48,7 @@ export default function FleetOverviewPage() {
   return (
     <div>
       <PageHeader
+        eyebrow="Operations"
         title="Fleet Overview"
         description="Fleet-wide health, utilization and cost across all developer workspaces."
       />

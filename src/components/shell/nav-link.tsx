@@ -29,14 +29,18 @@ export function NavLink({
       href={item.href}
       aria-current={active ? 'page' : undefined}
       className={cn(
-        'inline-flex items-center gap-2 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
-        variant === 'sidebar' ? 'px-3 py-2' : 'px-3 py-1.5',
+        'inline-flex items-center gap-2.5 rounded-lg text-[13.5px] font-medium tracking-[-0.01em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+        variant === 'sidebar' ? 'px-2.5 py-[7px]' : 'px-3 py-1.5',
         active
-          ? 'bg-primary/10 text-primary'
-          : 'text-muted-foreground hover:bg-accent hover:text-foreground',
+          ? 'bg-foreground/[0.08] text-foreground'
+          : 'text-muted-foreground hover:bg-foreground/[0.06] hover:text-foreground',
       )}
     >
-      <Icon className="size-4" aria-hidden="true" />
+      <Icon
+        className={cn('size-[17px]', active && 'text-primary')}
+        strokeWidth={1.75}
+        aria-hidden="true"
+      />
       {item.label}
     </Link>
   );

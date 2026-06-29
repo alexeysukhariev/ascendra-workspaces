@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { Boxes, Laptop } from 'lucide-react';
+import { Laptop } from 'lucide-react';
+import { Logo } from '@/components/brand/logo';
 import { NavLink, type NavItem } from './nav-link';
 import { PersonaSwitcher } from './persona-switcher';
 import { ThemeToggle } from './theme-toggle';
@@ -20,14 +21,12 @@ export function DeveloperShell({ children }: { children: React.ReactNode }) {
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-40 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="mx-auto flex h-16 w-full max-w-5xl items-center gap-3 px-4 sm:px-6">
-          <Link href="/my-machines" className="flex min-w-0 items-center gap-2">
-            <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-primary text-primary-foreground">
-              <Boxes className="size-5" />
-            </span>
-            <span className="flex flex-col leading-none">
-              <span className="text-sm font-semibold">Ascendra</span>
-              <span className="text-xs text-muted-foreground">Workspaces</span>
-            </span>
+          <Link
+            href="/my-machines"
+            className="flex min-w-0 shrink-0 items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            aria-label="StrategiClear — My Machines"
+          >
+            <Logo className="h-[22px]" />
           </Link>
 
           <nav

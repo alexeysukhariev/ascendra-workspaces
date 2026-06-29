@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { LayoutGrid, Server, Boxes, Layers } from 'lucide-react';
+import { LayoutGrid, Server, Layers } from 'lucide-react';
+import { Logo } from '@/components/brand/logo';
 import { NavLink, type NavItem } from './nav-link';
 import { PersonaSwitcher } from './persona-switcher';
 import { ThemeToggle } from './theme-toggle';
@@ -14,61 +15,53 @@ const ADMIN_NAV: NavItem[] = [
 ];
 
 /**
- * Admin experience: a dense, full-width operations console with a persistent
- * left sidebar. Deliberately different from the developer's personal view.
+ * Admin experience: a dense operations console using the macOS Tahoe inset
+ * pattern — a floating sidebar that "peers" with the content on the same
+ * elevation, content area with no background of its own.
  */
 export function AdminShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-40 border-b bg-background">
-        <div className="flex h-14 items-center gap-3 px-4 sm:px-6">
-          <Link href="/fleet" className="flex min-w-0 items-center gap-2">
-            <span className="grid size-7 shrink-0 place-items-center rounded-md bg-foreground text-background">
-              <Boxes className="size-4" />
-            </span>
-            <span className="truncate text-sm font-semibold">
-              Ascendra
-              <span className="hidden font-normal text-muted-foreground sm:inline">
-                {' '}
-                · Control Plane
-              </span>
-            </span>
+    <div className="flex min-h-screen items-stretch gap-3 p-3 max-[880px]:flex-col max-[880px]:gap-2 max-[880px]:p-2">
+      <aside
+        className={
+          'sticky top-3 flex h-[calc(100vh-1.5rem)] w-60 shrink-0 flex-col rounded-[22px] border bg-card p-3 ' +
+          'max-[880px]:static max-[880px]:h-auto max-[880px]:w-full max-[880px]:rounded-2xl'
+        }
+      >
+        <div className="px-2 py-2">
+          <Link
+            href="/fleet"
+            className="inline-flex items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            aria-label="StrategiClear — Fleet Overview"
+          >
+            <Logo className="h-6" />
           </Link>
-
-          <div className="ml-auto flex items-center gap-2 sm:gap-3">
-            <PersonaSwitcher />
-            <ThemeToggle />
-            <UserChip />
-          </div>
+          <p className="mt-1 px-0.5 text-[11px] font-medium tracking-[0.04em] text-muted-foreground">
+            CONTROL PLANE
+          </p>
         </div>
 
-        {/* Compact horizontal nav for small screens (sidebar is hidden there). */}
         <nav
-          aria-label="Admin navigation"
-          className="flex items-center gap-1 overflow-x-auto border-t px-4 py-1.5 md:hidden"
+          aria-label="Admin sections"
+          className="mt-2 flex flex-col gap-0.5 max-[880px]:flex-row max-[880px]:overflow-x-auto"
         >
           {ADMIN_NAV.map((item) => (
-            <NavLink key={item.href} item={item} variant="top" />
+            <NavLink key={item.href} item={item} variant="sidebar" />
           ))}
         </nav>
-      </header>
 
-      <div className="flex flex-1">
-        <aside className="hidden w-60 shrink-0 border-r bg-muted/30 p-3 md:block">
-          <nav aria-label="Admin sections" className="flex flex-col gap-1">
-            <p className="px-3 py-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-              Operations
-            </p>
-            {ADMIN_NAV.map((item) => (
-              <NavLink key={item.href} item={item} variant="sidebar" />
-            ))}
-          </nav>
-        </aside>
+        <div className="mt-auto flex flex-col gap-3 border-t pt-3 max-[880px]:mt-3">
+          <PersonaSwitcher />
+          <div className="flex items-center justify-between">
+            <UserChip />
+            <ThemeToggle />
+          </div>
+        </div>
+      </aside>
 
-        <main className="min-w-0 flex-1 px-4 py-6 sm:px-6 lg:px-8">
-          {children}
-        </main>
-      </div>
+      <main className="min-w-0 flex-1 px-6 py-8 max-[880px]:px-1 max-[880px]:py-2">
+        <div className="mx-auto max-w-[1200px]">{children}</div>
+      </main>
     </div>
   );
 }

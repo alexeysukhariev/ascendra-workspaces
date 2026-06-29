@@ -3,68 +3,93 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/*
+ * Apple "Liquid Glass" design tokens, mapped onto the shadcn variable names so
+ * existing components inherit the look. Values are an exact-ish match to the
+ * iOS/iPadOS 26 kit (dark) + iOS light system palette. See docs/APPLE_STYLE_GUIDE.
+ */
+
 :root {
-  --radius: 0.625rem;
+  color-scheme: light;
+  --radius: 16px; /* cards = r-lg */
 
-  --background: oklch(0.99 0 0);
-  --foreground: oklch(0.18 0.01 260);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.01 260);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.01 260);
-  --primary: oklch(0.55 0.2 264);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.96 0.005 260);
-  --secondary-foreground: oklch(0.25 0.01 260);
-  --muted: oklch(0.97 0.003 260);
-  --muted-foreground: oklch(0.52 0.01 260);
-  --accent: oklch(0.95 0.01 264);
-  --accent-foreground: oklch(0.25 0.02 264);
-  --destructive: oklch(0.58 0.22 27);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.92 0.004 260);
-  --input: oklch(0.92 0.004 260);
-  --ring: oklch(0.55 0.2 264);
+  /* Light system palette (iOS light) */
+  --background: #f2f2f7; /* systemGroupedBackground (body uses a gradient) */
+  --foreground: #000000; /* label */
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
 
-  --success: oklch(0.62 0.16 150);
-  --warning: oklch(0.72 0.16 70);
+  --primary: #007aff; /* iOS blue (light) */
+  --primary-foreground: #ffffff;
+  --secondary: rgba(120, 120, 128, 0.12);
+  --secondary-foreground: #1c1c1e;
+  --muted: #e9e9ee;
+  --muted-foreground: rgba(60, 60, 67, 0.6); /* secondaryLabel */
+  --accent: rgba(0, 0, 0, 0.045); /* hover fill */
+  --accent-foreground: #000000;
+  --destructive: #ff3b30;
+  --destructive-foreground: #ffffff;
 
-  --chart-1: oklch(0.55 0.2 264);
-  --chart-2: oklch(0.62 0.16 150);
-  --chart-3: oklch(0.72 0.16 70);
-  --chart-4: oklch(0.58 0.22 27);
-  --chart-5: oklch(0.6 0.13 200);
+  --border: rgba(0, 0, 0, 0.09); /* hairline */
+  --input: rgba(0, 0, 0, 0.12);
+  --ring: #007aff;
+
+  --success: #34c759;
+  --warning: #ff9500;
+
+  --chart-1: #007aff;
+  --chart-2: #34c759;
+  --chart-3: #ff9500;
+  --chart-4: #ff3b30;
+  --chart-5: #5ac8fa;
+
+  /* Liquid Glass material (floating surfaces) */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(0, 0, 0, 0.08);
+
+  /* App-shell sizing */
+  --sidebar-w: 240px;
 }
 
 .dark {
-  --background: oklch(0.16 0.01 260);
-  --foreground: oklch(0.96 0.003 260);
-  --card: oklch(0.2 0.012 260);
-  --card-foreground: oklch(0.96 0.003 260);
-  --popover: oklch(0.2 0.012 260);
-  --popover-foreground: oklch(0.96 0.003 260);
-  --primary: oklch(0.7 0.16 264);
-  --primary-foreground: oklch(0.18 0.02 264);
-  --secondary: oklch(0.27 0.012 260);
-  --secondary-foreground: oklch(0.96 0.003 260);
-  --muted: oklch(0.26 0.01 260);
-  --muted-foreground: oklch(0.7 0.01 260);
-  --accent: oklch(0.3 0.03 264);
-  --accent-foreground: oklch(0.96 0.003 260);
-  --destructive: oklch(0.62 0.2 27);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.3 0.01 260 / 60%);
-  --input: oklch(0.32 0.01 260 / 50%);
-  --ring: oklch(0.7 0.16 264);
+  color-scheme: dark;
 
-  --success: oklch(0.7 0.15 150);
-  --warning: oklch(0.78 0.15 70);
+  /* Dark system palette (iOS 26 dark, exact from kit) */
+  --background: #0c0c0e; /* lower stop of the body gradient */
+  --foreground: #ffffff;
+  --card: #1c1c1e; /* surface-1 */
+  --card-foreground: #ffffff;
+  --popover: #2c2c2e; /* surface-2 */
+  --popover-foreground: #ffffff;
 
-  --chart-1: oklch(0.7 0.16 264);
-  --chart-2: oklch(0.7 0.15 150);
-  --chart-3: oklch(0.78 0.15 70);
-  --chart-4: oklch(0.62 0.2 27);
-  --chart-5: oklch(0.68 0.12 200);
+  --primary: #5cb8ff; /* iOS 26 vibrant blue */
+  --primary-foreground: #ffffff;
+  --secondary: rgba(120, 120, 128, 0.16); /* fill-2 */
+  --secondary-foreground: #ffffff;
+  --muted: #2c2c2e; /* surface-2 */
+  --muted-foreground: rgba(235, 235, 245, 0.62); /* secondary label */
+  --accent: rgba(255, 255, 255, 0.08); /* hover fill */
+  --accent-foreground: #ffffff;
+  --destructive: #ff4245;
+  --destructive-foreground: #ffffff;
+
+  --border: rgba(255, 255, 255, 0.09); /* hairline */
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #5cb8ff;
+
+  --success: #4ae968;
+  --warning: #fedf43;
+
+  --chart-1: #5cb8ff;
+  --chart-2: #4ae968;
+  --chart-3: #fedf43;
+  --chart-4: #ff4245;
+  --chart-5: #6dd9ff;
+
+  --glass-bg: rgba(28, 28, 30, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {
@@ -95,28 +120,99 @@
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-sm: calc(var(--radius) - 8px); /* ~8px small controls */
+  --radius-md: calc(var(--radius) - 6px); /* ~10px buttons/inputs */
+  --radius-lg: var(--radius); /* 16px cards */
+  --radius-xl: calc(var(--radius) + 6px); /* 22px sheets/sidebar */
 
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
+    'Segoe UI', system-ui, var(--font-inter), 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:
+    ui-monospace, 'SF Mono', SFMono-Regular, 'JetBrains Mono', Menlo, Consolas,
+    monospace;
 }
 
 * {
   border-color: var(--border);
 }
 
+/* Warm depth gradient instead of flat fill (macOS Tahoe dark Finder). */
 body {
-  background: var(--background);
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ffffff 0%, #f2f2f7 100%);
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-sans);
+  font-feature-settings: 'ss01', 'ss02', 'cv11';
+  letter-spacing: -0.011em;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.dark body {
+  background: linear-gradient(180deg, #16161a 0%, #0c0c0e 100%);
+  background-attachment: fixed;
 }
 
 /* Visible focus ring for keyboard users across interactive elements. */
 :focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
+}
+
+/* Dark, unobtrusive scrollbars. */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--muted-foreground) 45%, transparent);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklab, var(--muted-foreground) 65%, transparent);
+  background-clip: padding-box;
+}
+
+/*
+ * iOS 26 type scale. Use these classes for text instead of ad-hoc font sizes.
+ * weight 590 = SF Pro Semibold (Apple custom).
+ */
+.type-large-title { font-size: 34px; font-weight: 400; line-height: 41px; letter-spacing: 0.012em; }
+.type-large-title-emph { font-size: 34px; font-weight: 700; line-height: 41px; letter-spacing: 0.012em; }
+.type-title-1 { font-size: 28px; font-weight: 400; line-height: 34px; letter-spacing: 0.014em; }
+.type-title-1-emph { font-size: 28px; font-weight: 700; line-height: 34px; letter-spacing: 0.014em; }
+.type-title-2 { font-size: 22px; font-weight: 400; line-height: 28px; letter-spacing: -0.012em; }
+.type-title-2-emph { font-size: 22px; font-weight: 700; line-height: 28px; letter-spacing: -0.012em; }
+.type-title-3 { font-size: 20px; font-weight: 400; line-height: 25px; letter-spacing: -0.022em; }
+.type-title-3-emph { font-size: 20px; font-weight: 590; line-height: 25px; letter-spacing: -0.022em; }
+.type-headline { font-size: 17px; font-weight: 590; line-height: 22px; letter-spacing: -0.025em; }
+.type-body { font-size: 17px; font-weight: 400; line-height: 22px; letter-spacing: -0.025em; }
+.type-body-emph { font-size: 17px; font-weight: 590; line-height: 22px; letter-spacing: -0.025em; }
+.type-callout { font-size: 16px; font-weight: 400; line-height: 21px; letter-spacing: -0.019em; }
+.type-callout-emph { font-size: 16px; font-weight: 590; line-height: 21px; letter-spacing: -0.019em; }
+.type-subheadline { font-size: 15px; font-weight: 400; line-height: 20px; letter-spacing: -0.015em; }
+.type-subheadline-emph { font-size: 15px; font-weight: 590; line-height: 20px; letter-spacing: -0.015em; }
+.type-footnote { font-size: 13px; font-weight: 400; line-height: 18px; letter-spacing: -0.006em; }
+.type-footnote-emph { font-size: 13px; font-weight: 590; line-height: 18px; letter-spacing: -0.006em; }
+.type-caption-1 { font-size: 12px; font-weight: 400; line-height: 16px; }
+.type-caption-1-emph { font-size: 12px; font-weight: 590; line-height: 16px; }
+
+/* Eyebrow — the one place uppercase is allowed. */
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
 }
