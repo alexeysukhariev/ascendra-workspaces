@@ -1,5 +1,5 @@
 /**
- * Domain models for Ascendra Workspaces.
+ * Domain models for StrategiClear.
  *
  * NOTE: The take-home brief says to use the interfaces "verbatim" as a starting
  * point, but the literal interface bodies were not included in the prompt. These

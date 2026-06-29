@@ -1,4 +1,4 @@
-# Ascendra Workspaces
+# StrategiClear
 
 A dashboard for managing developer virtual machines, built for the **Product
 Design Engineer** take-home. It serves two deliberately different personas:
@@ -31,7 +31,7 @@ pnpm lint         # eslint (flat config)
 > Requires Node 20+ and pnpm 9+ (`corepack enable pnpm` or `npm i -g pnpm`).
 
 When the app loads, MSW (the in-browser mock backend) starts first — you'll
-briefly see "Starting Ascendra mock environment…". Use the **persona switcher**
+briefly see "Starting StrategiClear mock environment…". Use the **persona switcher**
 in the header to flip between Developer and Admin.
 
 ---

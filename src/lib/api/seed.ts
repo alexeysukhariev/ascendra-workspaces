@@ -60,11 +60,11 @@ export function createSeedData(now: Date = new Date()): SeedData {
 
   // --- Users -------------------------------------------------------------
   const users: User[] = [
-    { id: 'u_maya', name: 'Maya Chen', email: 'maya@ascendra.dev', role: 'admin' },
-    { id: 'u_arjun', name: 'Arjun Patel', email: 'arjun@ascendra.dev', role: 'developer' },
-    { id: 'u_lena', name: 'Lena Vogel', email: 'lena@ascendra.dev', role: 'developer' },
-    { id: 'u_dmitri', name: 'Dmitri Sokolov', email: 'dmitri@ascendra.dev', role: 'developer' },
-    { id: 'u_sofia', name: 'Sofia Rossi', email: 'sofia@ascendra.dev', role: 'developer' },
+    { id: 'u_maya', name: 'Maya Chen', email: 'maya@strategiclear.dev', role: 'admin' },
+    { id: 'u_arjun', name: 'Arjun Patel', email: 'arjun@strategiclear.dev', role: 'developer' },
+    { id: 'u_lena', name: 'Lena Vogel', email: 'lena@strategiclear.dev', role: 'developer' },
+    { id: 'u_dmitri', name: 'Dmitri Sokolov', email: 'dmitri@strategiclear.dev', role: 'developer' },
+    { id: 'u_sofia', name: 'Sofia Rossi', email: 'sofia@strategiclear.dev', role: 'developer' },
   ];
   const currentDeveloperId = 'u_arjun';
   const currentAdminId = 'u_maya';
@@ -152,7 +152,7 @@ export function createSeedData(now: Date = new Date()): SeedData {
       createdAt: new Date(now.getTime() - s.createdDaysAgo * 24 * HOURS).toISOString(),
       lastActiveAt: new Date(now.getTime() - s.lastActiveHoursAgo * HOURS).toISOString(),
       uptimeSeconds: running ? Math.floor((s.lastActiveHoursAgo + 4) * 3600) : 0,
-      ideUrl: `https://ide.ascendra.dev/${s.id}/?folder=/home/dev/workspace`,
+      ideUrl: `https://ide.strategiclear.dev/${s.id}/?folder=/home/dev/workspace`,
     } satisfies VM;
   });
 

@@ -29,7 +29,7 @@ export default function RootPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center text-muted-foreground">
-      <p className="text-sm">Loading Ascendra Workspaces…</p>
+      <p className="text-sm">Loading StrategiClear…</p>
     </div>
   );
 }

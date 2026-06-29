@@ -6,7 +6,7 @@ import type { User } from '@/lib/api/types';
 
 export type Persona = 'developer' | 'admin';
 
-export const PERSONA_STORAGE_KEY = 'ascendra:persona';
+export const PERSONA_STORAGE_KEY = 'strategiclear:persona';
 
 /** Default landing route for each persona. */
 export const PERSONA_HOME: Record<Persona, string> = {

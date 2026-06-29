@@ -11,9 +11,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Ascendra Workspaces',
+  title: 'StrategiClear',
   description:
-    'Manage developer virtual machines — fleet health, utilization and cost for Ascendra Networks.',
+    'StrategiClear — manage developer virtual machines: fleet health, utilization and cost.',
 };
 
 export default function RootLayout({

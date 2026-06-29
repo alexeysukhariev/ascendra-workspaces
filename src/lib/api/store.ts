@@ -40,7 +40,7 @@ interface InternalStore extends SeedData {
   seq: number;
 }
 
-const GLOBAL_KEY = '__ascendra_store__';
+const GLOBAL_KEY = '__strategiclear_store__';
 
 function init(): InternalStore {
   const seed = createSeedData(new Date());
