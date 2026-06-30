@@ -127,10 +127,12 @@ error / in-progress), and deliberately did **not** gold-plate breadth.
    on each read, and queries poll on an interval. Cheap, and good enough to feel
    alive.
 
-9. **Errors are reachable by design.** Reads fail ~10% of the time (toggleable via
-   `setErrorRate` in the store). Queries retry twice with backoff, so a single
-   hiccup self-heals but a persistent failure still surfaces the **error state with
-   a retry button**.
+9. **Errors are reachable but toggleable.** Every read can fail to exercise the
+   error UI; this is controlled by `setErrorRate` in the store and ships **off by
+   default** for a smooth demo (set it to e.g. `0.1` to inject ~10% failures).
+   Queries retry twice with backoff, and a persistent failure surfaces the
+   **error state with a retry button**. Artificial latency is kept small
+   (~90–230ms) so loading skeletons are real but the app feels fast.
 
 10. **Dark mode included** (cheap with shadcn tokens), class-based, persisted, with
     a system-preference default.

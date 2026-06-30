@@ -17,9 +17,9 @@ import {
 } from '@/lib/api/store';
 import type { LifecycleAction, TemplateInput } from '@/lib/api/types';
 
-/** Random artificial latency in the 300–800ms range. */
+/** Small random artificial latency so loading states are still real, but snappy. */
 function latency(): Promise<void> {
-  return delay(300 + Math.floor(Math.random() * 500));
+  return delay(90 + Math.floor(Math.random() * 140));
 }
 
 function serverError(message = 'The mock server hiccupped. Please retry.') {

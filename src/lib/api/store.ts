@@ -48,7 +48,10 @@ function init(): InternalStore {
   const seed = createSeedData(new Date());
   return {
     ...seed,
-    errorRate: 0.1,
+    // Off by default for a smooth client-facing demo. The error states are fully
+    // implemented and reachable — flip this on (e.g. setErrorRate(0.1)) to
+    // exercise them.
+    errorRate: 0,
     timers: new Map(),
     seq: 100,
   };
